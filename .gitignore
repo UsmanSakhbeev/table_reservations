@@ -45,3 +45,4 @@ share/python-wheels/
 *.manifest
 *.spec
 local_settings.py
+uv.lock
