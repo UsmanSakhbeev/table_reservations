@@ -1,7 +1,7 @@
 import logging
 
 from rest_framework import generics
-from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import AllowAny
 
 from .models import Reservation
 from .serializers import ReservationSerializer

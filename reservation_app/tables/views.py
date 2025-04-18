@@ -1,12 +1,13 @@
 import logging
 
 from rest_framework import generics
-from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import AllowAny
 
 from .models import Table
 from .serializers import TableSerializer
 
 logger = logging.getLogger(__name__)
+
 
 class TableListCreateAPIView(generics.ListCreateAPIView):
     queryset = Table.objects.all().order_by('id')
@@ -21,6 +22,7 @@ class TableListCreateAPIView(generics.ListCreateAPIView):
         table = serializer.save()
         logger.info(f"POST /api/tables/ — создан столик id={table.id}, name={table.name}")
         return table
+
 
 class TableRetrieveDestroyAPIView(generics.RetrieveDestroyAPIView):
     queryset = Table.objects.all()
